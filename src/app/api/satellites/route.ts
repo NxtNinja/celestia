@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
     const res = await fetch(url);
     const data: SatelliteResponse = await res.json();
     return NextResponse.json(data);
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { error: "Failed to fetch satellite data" },
       { status: 500 }

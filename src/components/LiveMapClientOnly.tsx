@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { Button } from "./ui/button";
 import { Satellite, SatelliteResponse } from "@/lib/types";
 import "leaflet/dist/leaflet.css";
+import * as leaflet from "leaflet";
 
 // Dynamically import all Leaflet-related components with no SSR
 const MapContainer = dynamic(
@@ -38,9 +39,9 @@ export default function LiveMapClientOnly() {
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const [L, setL] = useState<any>(null);
-  const [satelliteIcon, setSatelliteIcon] = useState<any>(null);
-  const [userIcon, setUserIcon] = useState<any>(null);
+  const [L, setL] = useState<typeof leaflet | null>(null);
+  const [satelliteIcon, setSatelliteIcon] = useState<leaflet.Icon | null>(null);
+  const [userIcon, setUserIcon] = useState<leaflet.Icon | null>(null);
 
   useEffect(() => {
     // Import Leaflet only on client side
@@ -86,7 +87,7 @@ export default function LiveMapClientOnly() {
           setUserPosition([latitude, longitude]);
           fetchSatellites(latitude, longitude);
         },
-        (err) => {
+        (_err) => {
           setLocationError("Location access denied or unavailable");
           fetchSatellites(20.5937, 78.9629); // fallback to India if denied
         }
@@ -104,7 +105,7 @@ export default function LiveMapClientOnly() {
       const data: SatelliteResponse = await res.json();
       setSatellites(data.above);
       setLastUpdate(new Date());
-    } catch (error) {
+    } catch (_error) {
       // console.error("Failed to fetch satellite data", error);
     } finally {
       setIsLoading(false);
