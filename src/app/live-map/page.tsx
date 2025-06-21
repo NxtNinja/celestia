@@ -1,39 +1,39 @@
-import HomePage from "@/components/HomePage";
+import LiveMapClientOnly from "@/components/LiveMapClientOnly";
 import { Metadata } from "next";
 import Script from "next/script";
 
 export const generateMetadata = (): Metadata => {
   return {
-    title: "Celvo | Real-time Satellite Tracker",
+    title: "Celvo | Live Satellite Map",
     description:
-      "Track live positions of satellites orbiting Earth with Celvo's real-time interactive map.",
+      "View real-time satellite positions above Earth with Celvo's interactive live map. Track satellites by location.",
     openGraph: {
-      title: "Celvo | Real-time Satellite Tracker",
+      title: "Celvo | Live Satellite Map",
       description:
-        "Track live positions of satellites orbiting Earth with Celvo's real-time interactive map.",
-      url: "https://celvo.netlify.app/",
+        "View real-time satellite positions above Earth with Celvo's interactive live map. Track satellites by location.",
+      url: "https://celvo.netlify.app/live-map",
       siteName: "Celvo",
       images: [
         {
           url: "https://celvo.netlify.app/og-image.png",
           width: 1200,
           height: 630,
-          alt: "Celvo Satellite Map Preview",
+          alt: "Celvo Live Satellite Map Preview",
         },
       ],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Celvo | Real-time Satellite Tracker",
+      title: "Celvo | Live Satellite Map",
       description:
-        "Explore an interactive live satellite map powered by Celvo.",
+        "Track real-time satellite positions with Celvo's interactive live map.",
       images: ["https://celvo.netlify.app/twitter-card.png"],
       site: "@CelvoApp",
       creator: "@CelvoApp",
     },
     alternates: {
-      canonical: "https://celvo.netlify.app/",
+      canonical: "https://celvo.netlify.app/live-map",
     },
     robots: {
       index: true,
@@ -50,27 +50,21 @@ export const generateMetadata = (): Metadata => {
   };
 };
 
-export default function Home() {
+export default function LiveMap() {
   return (
     <>
-      <HomePage />
+      <LiveMapClientOnly />
       <Script
-        id="jsonld-home"
+        id="jsonld-live-map"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Celvo",
-            url: "https://celvo.netlify.app/",
+            "@type": "WebPage",
+            name: "Celvo | Live Satellite Map",
+            url: "https://celvo.netlify.app/live-map",
             description:
-              "Track live positions of satellites orbiting Earth with Celvo's real-time interactive map.",
-            potentialAction: {
-              "@type": "SearchAction",
-              target:
-                "https://celvo.netlify.app/live-map?q={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
+              "View real-time satellite positions above Earth with Celvo's interactive live map. Track satellites by location.",
             publisher: {
               "@type": "Organization",
               name: "Celvo",
