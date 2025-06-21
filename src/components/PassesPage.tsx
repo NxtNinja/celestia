@@ -57,7 +57,7 @@ export default function PassesPage() {
       setPasses(data.passes || []);
       setSatelliteInfo(data.satelliteInfo || null);
       setError(null);
-    } catch (err) {
+    } catch {
       setError("Failed to load satellite passes");
       setPasses([]);
     }
