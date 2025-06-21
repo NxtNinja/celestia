@@ -72,7 +72,7 @@ const HomePage = () => {
         </section>
 
         {/* Feature Cards Section */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 max-w-7xl mx-auto">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 max-w-7xl mx-auto">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
