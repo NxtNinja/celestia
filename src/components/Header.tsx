@@ -19,12 +19,6 @@ const Header = () => {
           <a href="/passes" className="hover:text-indigo-400">
             Passes
           </a>
-          <a href="/explorer" className="hover:text-indigo-400">
-            Explorer
-          </a>
-          <a href="/tle" className="hover:text-indigo-400">
-            TLE Viewer
-          </a>
           <a href="/about" className="hover:text-indigo-400">
             About
           </a>

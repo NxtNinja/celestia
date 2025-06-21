@@ -50,3 +50,14 @@ export interface PassesResponse {
     category: string;
   };
 }
+
+export interface TLEInfo {
+  satid: number;
+  satname: string;
+  transactionscount: number;
+}
+
+export interface TLEResponse {
+  info: TLEInfo;
+  tle: string;
+}
