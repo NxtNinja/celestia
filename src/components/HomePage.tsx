@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Satellite, Map, CalendarDays } from "lucide-react";
+import { Satellite, CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
 
 const HomePage = () => {
@@ -23,15 +23,6 @@ const HomePage = () => {
       link: "/passes",
       linkLabel: "Check Pass Schedule →",
       delay: 0.7,
-    },
-    {
-      icon: Map,
-      title: "Satellite Explorer",
-      description:
-        "Browse all satellites currently in the sky above you by category, type, or operational status.",
-      link: "/explorer",
-      linkLabel: "Start Exploring →",
-      delay: 0.8,
     },
   ];
   return (
