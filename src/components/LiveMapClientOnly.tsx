@@ -87,7 +87,7 @@ export default function LiveMapClientOnly() {
           setUserPosition([latitude, longitude]);
           fetchSatellites(latitude, longitude);
         },
-        (_err) => {
+        () => {
           setLocationError("Location access denied or unavailable");
           fetchSatellites(20.5937, 78.9629); // fallback to India if denied
         }
@@ -105,7 +105,7 @@ export default function LiveMapClientOnly() {
       const data: SatelliteResponse = await res.json();
       setSatellites(data.above);
       setLastUpdate(new Date());
-    } catch (_error) {
+    } catch {
       // console.error("Failed to fetch satellite data", error);
     } finally {
       setIsLoading(false);
